@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class TaskManager {
 
-    private static String filepath = "tasks.csv";
+    private static final String FILEPATH = "tasks.csv";
 
     private static String[][] addToArray2D(String[][] tab, String newElement[]) {
         String[][] resizedTab = new String[tab.length + 1][];
@@ -52,7 +52,7 @@ public class TaskManager {
     private static String[][] loadTaskArray() {
         String[][] tasksArray = new String[0][3];
         Scanner scan = null;
-        File tasksDataBase = new File(filepath);
+        File tasksDataBase = new File(FILEPATH);
         try {
             scan = new Scanner(tasksDataBase);
             while (scan.hasNextLine()) {
@@ -116,7 +116,7 @@ public class TaskManager {
     }
 
     private static void saveToFile(String[][] taskArray){
-        File file = new File(filepath);
+        File file = new File(FILEPATH);
         FileWriter fileWriter = null;
         try {
             fileWriter = new FileWriter(file,false);
